@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Brother PES 轉檔工具</title>
+    <link rel="stylesheet" href="/static/app.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="workspace">
+        <div class="panel controls">
+          <header>
+            <p>Brother embroidery</p>
+            <h1>PES 轉檔工具</h1>
+          </header>
+
+          <form id="convert-form">
+            <label class="dropzone" for="artwork">
+              <input id="artwork" name="artwork" type="file" accept="image/png,image/jpeg,image/webp,image/bmp,image/gif" required />
+              <span class="drop-title">選擇圖片</span>
+              <span id="file-name" class="drop-meta">PNG, JPG, WebP, BMP, GIF</span>
+            </label>
+
+            <div class="field">
+              <label for="max-width">最大寬度 <output id="max-width-value">90 mm</output></label>
+              <input id="max-width" name="max_width_mm" type="range" min="20" max="160" value="90" />
+            </div>
+
+            <div class="field two">
+              <label for="colors">色數</label>
+              <input id="colors" name="colors" type="number" min="1" max="12" value="5" />
+            </div>
+
+            <div class="field two">
+              <label for="row-spacing">行距 mm</label>
+              <input id="row-spacing" name="row_spacing_mm" type="number" min="0.8" max="4" step="0.1" value="1.4" />
+            </div>
+
+            <div class="field two">
+              <label for="stitch-length">針距 mm</label>
+              <input id="stitch-length" name="stitch_length_mm" type="number" min="1" max="6" step="0.1" value="2.6" />
+            </div>
+
+            <button id="convert-button" type="submit">轉成 .PES</button>
+            <p id="status" role="status"></p>
+          </form>
+        </div>
+
+        <div class="preview">
+          <div class="preview-top">
+            <span>預覽</span>
+            <span id="image-size">尚未選擇</span>
+          </div>
+          <canvas id="preview-canvas"></canvas>
+        </div>
+      </section>
+    </main>
+    <script src="/static/app.js"></script>
+  </body>
+</html>
