@@ -2,18 +2,18 @@ from __future__ import annotations
 
 import cgi
 import json
+import os
 from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
-from urllib.parse import parse_qs
 
 from converter import ConvertOptions, convert_image_to_pes
 
 
 ROOT = Path(__file__).parent
 STATIC = ROOT / "static"
-HOST = "127.0.0.1"
-PORT = 8000
+HOST = os.environ.get("HOST", "127.0.0.1")
+PORT = int(os.environ.get("PORT", "8000"))
 
 
 class Handler(BaseHTTPRequestHandler):

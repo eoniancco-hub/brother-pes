@@ -20,6 +20,18 @@ Then open:
 http://127.0.0.1:8000
 ```
 
+## Deploy
+
+This is a Python web app, so GitHub Pages cannot run it directly. Deploy it to a
+Python-capable host such as Render:
+
+1. Open Render and create a new Web Service.
+2. Connect this GitHub repository.
+3. Use the included `render.yaml`, or set:
+   - Build command: `pip install -r requirements.txt`
+   - Start command: `HOST=0.0.0.0 python server.py`
+4. After deploy, Render will provide a public `https://...onrender.com` URL.
+
 ## Notes
 
 - Input: PNG, JPG/JPEG, WebP, BMP, GIF.
